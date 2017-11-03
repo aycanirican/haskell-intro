@@ -1,0 +1,3 @@
+nix-deps:
+  - async
+  - hweblib
