@@ -6,6 +6,15 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+(use-package smex
+    :ensure t
+    :init
+    (progn
+      (smex-initialize)
+      (global-set-key (kbd "M-x") 'smex)
+      (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+      (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)))
+
 (use-package auto-package-update
   :ensure t
   :bind ("C-x P" . auto-package-update-now)

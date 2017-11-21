@@ -3,31 +3,33 @@ let
   pkgs = import <nixpkgs> {};
 
   hask = pkgs.haskellPackages.ghcWithPackages (p: with p; [
-    #alex
-    #happy
-    styx
+    alex
     cabal-install 
     cabal2nix
+    dhall
+    happy
+    hasktags
     hlint
     stylish-haskell
-    hasktags
+    styx
   ]);
   
   macs = pkgs.emacsWithPackages (p: with p; [
-    magit
-    flycheck
-    haskell-mode
-    dante
-    use-package
-    undo-tree
     company
     company-ghc
+    dante
+    editorconfig
+    flycheck
+    haskell-mode
+    hindent
+    magit
+    markdown-mode
     multiple-cursors
     nix-mode
-    markdown-mode
-    editorconfig
-    hindent
     rainbow-delimiters
+    smex
+    undo-tree
+    use-package
   ]);
   
 in 
@@ -43,5 +45,6 @@ stdenv.mkDerivation rec {
   ];
   shellHook = ''
     export IN_HASKELL_SHELL=true
+    alias emacs="emacs -q -l ./.emacs"
   '';
 }
