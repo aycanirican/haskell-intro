@@ -45,6 +45,6 @@ stdenv.mkDerivation rec {
   ];
   shellHook = ''
     export IN_HASKELL_SHELL=true
-    alias emacs="emacs -q -l ./.emacs"
+    alias emacs="emacs -q -l $PWD/.emacs" # start emacs with local configuration
   '';
 }
